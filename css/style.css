@@ -1,0 +1,184 @@
+/* -------------- FONTS -------------- */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* -------------- Website Theme -------------- */
+::root {
+
+    --bg-color: hsl(257, 100%, 97%);
+    --main-color-1: hsl(257, 100%, 60%);
+    --main-color-dark-1: hsl(257, 69%, 50%);
+    --main-color-2: hsl(47, 100%, 61%);
+    --main-color-dark-2: hsl(47, 82%, 55%);
+    --bg-color-1: hsl(257, 100%, 97%);
+    --bg-color-2: #fff;
+    --bg-color-3: hsl(257, 100%, 98%);
+    --bg-color-transparent: rgba(255, 255, 255, 0.6);
+    --heading-color: hsl(257, 61%, 24%);
+    --text-color: hsl(257, 17%, 63%);
+
+}
+/* -------------- General Styles -------------- */
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    background-color: rgb(198, 180, 202);
+    font-family: "Poppins", sans-serif; 
+}
+::selection{
+  background-color: hsla(257, 100%, 60%, 0.9);
+  color: #fff; 
+}
+
+a{
+    text-decoration:none; 
+}
+
+ul{
+  list-style: none;
+}
+/* -------------- Reusable CSS Code -------------- */
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 75rem;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+.logo {
+
+    margin-right: 1.5rem;
+    font-family: "Abril Fatface", cursive;
+    font-size: 1.5rem;
+    /* color: var(--heading-color);  */
+    letter-spacing: 1px;
+    transition: 0.3s;  
+}
+
+.logo span {
+    color: var(--main-color-1);
+}
+
+/* -------------- Navbar Styling -------------- */
+
+header{
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    z-index: 10; 
+    transition: 0.3s;
+}
+/* sticky scrolled effect for navbar */
+header.scrolled{
+    background-color: rgba(250, 230, 254, 0.5);
+    box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
+}
+
+nav.container{
+    display: flex;
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+header .logo{
+    height: 120px; 
+    line-height: 120px; 
+}
+
+header.scrolled .logo { 
+
+    height: 80px;
+    line-height: 80px;
+}
+
+.links{
+    flex: 1; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.links ul{
+    display: flex; 
+    align-items: center;
+    width: 100%; 
+}
+
+.nav-link{
+    position: relative; 
+    display: inline-block; 
+    margin:  0 1rem; 
+    text-transform: uppercase; 
+    font-size: 0.75rem;
+    letter-spacing: 0,5px; 
+    color: var(--text-color); 
+    font-weight: 500;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.nav-link::after{
+    content: ""; 
+    position: absolute;
+    width: 0; 
+    height: 10px; 
+    border-radius: 5px; 
+    background-color: rgb(136, 10, 136);
+    bottom: 0; 
+    left: -2px; 
+    z-index: -1; 
+    opacity: 0;
+    transition: 0.3s; 
+}
+
+.nav-link:hover{
+    color: green;
+}
+
+.nav-link:hover::after{
+    width: 100%;
+    /* ?????? +- */
+    opacity: 0.2;
+}
+
+.toggle-btn{
+    color: var(--heading-color); 
+    /* ??????? */
+    min-width: 40px; 
+    height: 40px; 
+    background-color: white;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center;
+    /* ??????? */
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.toggle-btn:hover{
+    filter: brightness(90%);
+}
+
+/* --------------  Showcase Area styling  -------------- */
+
+.showcase-area{
+    padding: 120px 0;
+    width: 100%; 
+    /* ?????? */
+    overflow: hidden; 
+}
+
+.showcase-area .container{
+    display: grid; 
+    /* ????? */
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
