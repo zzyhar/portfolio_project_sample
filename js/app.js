@@ -10,3 +10,11 @@ stickyNavbar();
 
 
 window.addEventListener("scroll", stickyNavbar); 
+
+/* -------------- Reveal Animaation -------------- */
+
+let sr = ScrollReveal({
+    duration: 2500, 
+    distance: "60px",  
+});  
+    sr.reveal(".showcase-info", {delay: 600}); 
