@@ -1,0 +1,2 @@
+1. Explain all unclear command 
+2.Connect to git repository 
