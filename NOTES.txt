@@ -1,2 +1,71 @@
-1. Explain all unclear command 
-2.Connect to git repository 
+// ====== padding ====== \\  
+space between element content and border 
+
+// ====== margin ====== \\ 
+-space around element borders 
+
+                                // ====== box-sizing ====== \\
+- content-box; 
+Any borders and paddings will not change the content(size of content) of the element.  
+(not fixed size, but fixed size of content)
+
+- border-box; 
+Borders and paddings will change the inside size of content but not the size of the box; 
+(fixed size of box, not fixed size of content)
+
+                                // ====== overflow-x ====== \\
+
+Function that according to the choosen variant illustrate content or hide it.
+
+- visible if content overflows the box it makes it visible 
+
+- hidden  if content overflows the box function hide it 
+
+- scroll if content overflows the box function allows to scrolldown to see the full content 
+
+- auto  by default if content overflows the container it makes it visible(scroll function) 
+                   if content fits in the container it is showing it as usual 
+
+                                // ====== list-style ====== \\
+Function allows to chanje the counter image for list      
+
+                                // ====== text-decoration ====== \\
+The function that allows to underline or overline the text in different ways(waywy, dotted, line); \
+Also it allows to chnage the color of the marking.                 
+
+                                // ====== position ====== \\
+- static The element is positioned aaccording to the normal flow of the document. (default value)
+
+- absolute the position of the container doesnt related to any other container, 
+   so the location of the element, only depend on the top left corner
+                            
+-relative the position of the element depend on the closest anchore or main element, 
+so the properties like(top, bottom, left, right) will be applied based on the anchor. 
+
+- sticky the position of the element will st
+
+                            // ====== width vs max-width ====== \\
+
+- width : 100%; ->  define the width of the specific element 
+
+- max-width : 100%; -> define the maximum size the element allow to have
+
+                            // ====== display ====== \\
+- block -> does mean it will take an entire space it is given to it
+
+-inline -> does mean that the block of the content will have the 
+           length of the content (share space)
+
+-inline-block -> does mean that the block of the content will have the 
+           length of the content (share space), but also I can CNANGE
+           the height and width of the block
+
+-none -> does mean that the element invisiable
+
+-flex -> 
+
+
+ 
+
+
+
