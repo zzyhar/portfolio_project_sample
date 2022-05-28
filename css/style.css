@@ -3,21 +3,61 @@
 
 /* -------------- Website Theme -------------- */
 :root {
-
-    --bg-color: hsl(0, 0%, 99%);
-    --main-color-1: hsl(257, 100%, 60%);
-    --main-color-dark-1: hsl(257, 69%, 50%);
-    --main-color-2: hsl(47, 100%, 61%);
-    --main-color-dark-2: hsl(47, 82%, 55%);
-    --bg-color-1: hsl(257, 100%, 97%);
-    --bg-color-2: #fff;
-    --bg-color-3: hsl(259, 95%, 91%);
-    --bg-color-transparent: rgba(255, 255, 255, 0.6);
-    --heading-color: rgb(46, 29, 93);
-    --text-color: hsl(257, 17%, 63%);
-    --section-padding: 7rem; 
-
+        --hue-1: 257;
+        --hue-2: 47;
+        --main-color-1: hsl(var(--hue-1), 100%, 60%);
+        --main-color-dark-1: hsl(var(--hue-1), 69%, 50%);
+        --main-color-2: hsl(var(--hue-2), 100%, 61%);
+        --main-color-dark-2: hsl(var(--hue-2), 82%, 55%);
+        --section-padding: 7rem; 
 }
+    
+body{
+        --bg-color: hsl(var(--hue-1), 100%, 97%);
+        --bg-color-1: hsl(var(--hue-1), 100%, 97%);
+        --bg-color-2: #fff;
+        --bg-color-3: hsl(var(--hue-1), 100%, 95.5%);
+        --bg-color-transparent: rgba(255, 255, 255, 0.6);
+        --heading-color: hsl(var(--hue-1), 61%, 24%);
+        --text-color: hsl(var(--hue-1), 17%, 63%);
+}
+
+body.dark{
+    --bg-color: hsl(var(--hue-1), 19%, 15%);
+    --bg-color-1: hsl(var(--hue-1), 21%, 11%);
+    --bg-color-2: hsl(var(--hue-1), 23%, 19%);
+    --bg-color-3: hsl(var(--hue-1), 23%, 24%);
+    --bg-color-transparent: hsla(var(--hue-1), 23%, 19%, 0.6); 
+    --heading-color: hsl(var(--hue-1), 100%, 95%);
+    --text-color: hsl(var(--hue-1), 14%, 51%);
+}
+
+body.dark .st1{
+    fill : hsl(var(--hue-1), 18%, 29%);
+}
+
+body.dark .shape.sqaure{
+    opacity: 0.07;
+}
+
+body.dark .toggle-btn{
+    background-color: var(--bg-color-3);
+}
+
+body.dark .toggle-btn:hover{
+    background-color: brightness(110%);
+}
+
+body.dark .nav-link:hover::after,
+body.dark .nav-link.active::after {
+    opacity: 0.6;
+}
+
+body.daark .from-input:hover{
+    filter: brightness(110%); 
+}
+
+
 /* -------------- General Styles -------------- */
 *, *::before, *::after {
     padding: 0;
@@ -31,8 +71,9 @@ html{
 
 body {
     overflow-x: hidden;
-    background-color: rgb(243, 231, 246);
+    background-color: var(--bg-color);
     font-family: "Poppins", sans-serif; 
+    transition: 0.3s background-color; 
 }
 
 body.stopScrolling{
@@ -40,7 +81,7 @@ body.stopScrolling{
     overflow: hidden;   
 }
 ::selection{
-  background-color: hsla(257, 100%, 60%, 0.9);
+  background-color: var(--main-color-1);
   color: #fff; 
 }
 
@@ -84,6 +125,7 @@ ul{
     padding: 0.13rem 0.75rem;
     margin-bottom: 1rem;
     font-weight: 500;
+    transition: 0.3s color; 
 }
 
 .heading {
@@ -92,6 +134,7 @@ ul{
     font-family: "Abril Fatface", cursive;
     font-weight: 400;
     line-height: 1.3;
+    transition: 0.3s color;
 }
 
 .text {
@@ -115,7 +158,7 @@ ul{
     display: inline-block;
     padding: 0.9rem 1.75rem;
     border-radius: 17px;
-    background-color: hsl(257, 100%, 60%);
+    background-color: var(--main-color-1);
     color: #fff;
     font-size: 0.85rem;
     letter-spacing: 0, 4px;
@@ -130,7 +173,7 @@ ul{
 }
 
 .btn:hover {
-    background-color: hsl(257, 100%, 35%);
+    background-color: var(--main-color-dark-1);
 }
 
 .btn.secondary-btn {
@@ -155,7 +198,7 @@ ul{
     height: 2.5px;
     bottom: -2.5px;
     left: 0;
-    background-color: hsl(257, 100%, 60%);
+    background-color: var(--main-color-1);
     /* ??????  */
     transition: 0.3s ease-in-out;
 }
@@ -221,6 +264,7 @@ ul{
 
 .square {
     width: 70px;
+    transition: 0.3s opacity;
 }
 
 /* -------------- Navbar Styling -------------- */
@@ -235,7 +279,7 @@ header{
 }
 /* sticky scrolled effect for navbar */
 header.scrolled{
-    background-color: rgba(250, 230, 254, 0.5);
+    background-color: var(--bg-color-transparent);
     box-shadow: 0 5px 20px 0.1px rgba(0, 0, 0, 0.1);
 }
 
@@ -287,7 +331,7 @@ header.scrolled .logo {
     width: 0; 
     height: 10px; 
     border-radius: 5px; 
-    background-color: rgb(136, 10, 136);
+    background-color: var(--main-color-1);
     bottom: 0; 
     left: -2px; 
     z-index: -1; 
@@ -303,7 +347,6 @@ header.scrolled .logo {
 .nav-link:hover::after, 
 .nav-link.active::after{
     width: 100%;
-    /* ?????? +- */
     opacity: 0.2;
 }
 
@@ -312,7 +355,7 @@ header.scrolled .logo {
     /* ??????? */
     min-width: 40px; 
     height: 40px; 
-    background-color: white;
+    background-color: var(--bg-color-2);
     border-radius: 50%;
     display: flex; 
     align-items: center;
@@ -367,8 +410,8 @@ header.scrolled .logo {
     min-height: calc(100% + 120px); 
     background-image: linear-gradient(
     124deg,
-    hsl(257, 100%, 60%) 53%, 
-    rgb(231, 204, 1) 53%
+    var(--main-color-1) 53%, 
+    var(--main-color-2) 53%
     );
     margin-top: -120px;
     border-radius: 0 0 80px 80px;
@@ -437,7 +480,7 @@ header.scrolled .logo {
 }
 
 .about-card{
-    background-color: white; 
+    background-color: var(--bg-color-2); 
     width: 100%; 
     height: 100%;
     display: flex;
@@ -445,7 +488,7 @@ header.scrolled .logo {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.5s transform;
+    transition: 0.5s transform 0.3s background-color;
      
 }
 
@@ -474,17 +517,20 @@ header.scrolled .logo {
 /* ????? */
 .st0{
     /* ????? */
-    fill: rgb(255, 246, 255);
+    fill: var(--bg-color-3);
+    transition: 0.3s fill; 
 }
 
 .st1{
     fill: #c5e3ea;
+    transition: 0.3s fill;
 }
 
 .st2 {
     /* ????? */
-    fill: rgb(46, 29, 93);
+    fill: var(--heading-color);
     transition: 0.3s;
+
 }
 
 .about-card h3{ 
@@ -493,6 +539,7 @@ header.scrolled .logo {
     font-size: 1rem; 
     margin-top: 1rem; 
     letter-spacing: 0.3px ;
+    transition: 0.3s color;
 }
 
 .about-card:hover{
@@ -501,7 +548,7 @@ header.scrolled .logo {
 }
 
 .about-card:hover .st2{
-    fill: hsla(257, 100%, 60%, 0.9);;
+    fill: var(--main-color-1);
 }
 
 .about-grid::before{ 
@@ -512,7 +559,7 @@ header.scrolled .logo {
     top: 50%; 
     left:50%; 
     transform: translate(-50%, -50%);
-    border: 15px solid hsla(257, 100%, 60%, 0.9);
+    border: 15px solid var(--main-color-1);
     z-index: -1;
     opacity: 0.07; 
 }
@@ -531,11 +578,12 @@ header.scrolled .logo {
 }
 
 .skills-box{
-    background-color: VAR(--bg-color-2); 
+    background-color: var(--bg-color-2); 
     padding: 5rem 6rem; 
     border-radius: 20px;
     width: 100%; 
     position: relative;
+    transition: 0.3s background-color;
 }
 
 .box-desc{
@@ -582,12 +630,13 @@ header.scrolled .logo {
 }
 
 .sk-progress svg circle{
-   fill: rgba(243, 231, 246, 0.486);
+   fill: var(--bg-color-3);
    stroke-width: 5px;
-   stroke: hsl(257, 100%, 60%);
+   stroke: var(--main-color-1);
    stroke-linecap: round; 
    stroke-dasharray: 427;
    stroke-dashoffset: 427;
+   transition: 0.3s;
  }
 
 .counter {
@@ -599,6 +648,7 @@ header.scrolled .logo {
     color: var(--heading-color);
     font-weight: 400;
     font-size: 0.9rem;
+    transition: 0.3s color;
 }
 
 .counter span{ 
@@ -610,6 +660,7 @@ header.scrolled .logo {
     margin-top: 0.75rem;
     font-weight: 400; 
     font-size: 1rem; 
+    transition: 0.3s color;
 }
 
 .skills .dots {
@@ -646,14 +697,17 @@ header.scrolled .logo {
 }
 
 .milestones h2{
-    color: hsl(257, 100%, 60%);
+    color: var(--main-color-1);
     font-size: 2rem; 
+    transition: 0.3s color;
 }
 
 .milestones h2 span{ 
     font-size: 2rem; 
     line-height: 1.2;
     margin-right: 0.1rem;
+    transition: 0.3s color;
+    
 }
 
 .milestones h5{
@@ -661,6 +715,7 @@ header.scrolled .logo {
     line-height: 0.9;
     font-weight: 500;
     font-size: 0.95rem;
+    transition: 0.3s color;
 }
 
 .services-grid{
@@ -680,12 +735,14 @@ header.scrolled .logo {
     align-items: flex-start; 
     justify-content: space-between; 
     min-height: 280px; 
+    transition: 0.3s background-color;
 }
 
 .srv-card h3{
     color: var(--heading-color);
     font-weight: 500;
     font-size: 1.05rem;
+    transition: 0.3s color;
 }
 
 .srv-card .text{
@@ -710,7 +767,7 @@ header.scrolled .logo {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 15px solid hsla(257, 100%, 60%, 0.9);
+    border: 15px solid var(--main-color-1);
     z-index: -1;
     opacity: 0.07;
 }
@@ -761,10 +818,11 @@ header.scrolled .logo {
     margin-left: 1.3rem; 
     font-family: inherit; 
     text-transform: uppercase; 
+    transition: 0.3s color;
 }
 
 .filter-btn.mixitup-control-active{
-    color: hsl(257, 100%, 60%);
+    color: var(--main-color-1);
 }
 
 
@@ -781,6 +839,7 @@ header.scrolled .logo {
     height: 265px;
     display: grid; 
     grid-template-rows: 1fr auto;
+    transition: 0.3s background-color;
 }
 
 .prt-image{ 
@@ -832,7 +891,7 @@ header.scrolled .logo {
 
 
 .prt-icon{
-    color: rgb(46, 29, 93);
+    color: hsl(var(--hue-1), 61%, 24%);
     font-size: 1.1rem; 
     margin: 0 0.4rem; 
     background-color: var(--main-color-2);
@@ -950,6 +1009,7 @@ header.scrolled .logo {
     background-color: var(--bg-color-2); 
     border-radius: 15px;
     padding: 4rem 0 2.5rem;
+    transition: 0.3s background-color;
 }
 
 .swiper-slide{
@@ -972,12 +1032,14 @@ header.scrolled .logo {
     color: var(--heading-color);
     margin-bottom: 0.3rem;
     font-size: 1.05rem;
+    transition: 0.3s color;
 }
 
 .client-info h5{
     color: var(--text-color);
     font-weight: 500; 
     font-size: 0.8rem;
+    transition: 0.3s color;
 }
 
 .client-info h5 a{
@@ -1097,6 +1159,7 @@ header.scrolled .logo {
     padding: 3.5rem 3rem; 
     display: flex; 
     flex-direction: column;
+    transition: 0.3s background-color;
 }
 
 .contact-form h3{ 
@@ -1105,6 +1168,7 @@ header.scrolled .logo {
     font-weight: 500; 
     margin-bottom: 1.6rem;
     line-height: 0.9;
+    transition: 0.3s color;
 }
 
 textarea.form-input{
@@ -1145,6 +1209,7 @@ textarea.form-input{
     grid-template-columns: 1fr 1fr;
     column-gap: 6rem; 
     align-items: center;
+    transition: 0.3s background-color;
 }
 
 .sub-box .heading{
